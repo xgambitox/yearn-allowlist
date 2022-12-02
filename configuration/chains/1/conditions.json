@@ -239,7 +239,7 @@
     "paramTypes": ["bytes32", "address"],
     "requirements": [
       ["target", "isDelegateRegistry"],
-      ["param", "isVeyfiId", "0"]
+      ["param", "isVeYfiSpaceId", "0"]
     ]
   }
 ]

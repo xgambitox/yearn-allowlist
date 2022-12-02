@@ -153,6 +153,19 @@ contract AllowlistImplementationVeYFI {
   }
 
   /**
+   * @notice Determine whether or not an address is the snapshot delegate registry
+   * @param registryAddress The address to test
+   * @return Returns true if the address is the snapshot delegate registry and false if not
+   */
+  function isDelegateRegistry(address registryAddress)
+    external
+    view
+    returns (bool)
+  {
+    return snapshotDelegateRegistry == registryAddress;
+  }
+
+  /**
    * @notice Determine whether or not a vault address is a valid vault
    * @param vaultAddress The vault address to test
    * @return Returns true if the vault address is valid and false if not
