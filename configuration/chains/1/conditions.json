@@ -207,7 +207,7 @@
     "methodName": "approve",
     "paramTypes": ["address", "uint256"],
     "requirements": [
-      ["target", "isRewardToken"],
+      ["target", "isUnderlying"],
       ["param", "isVotingEscrow", "0"]
     ]
   },

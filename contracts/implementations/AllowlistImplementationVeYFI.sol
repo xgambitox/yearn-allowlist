@@ -61,18 +61,6 @@ contract AllowlistImplementationVeYFI {
   }
 
   /**
-   * @notice Set whether or not a contract is a valid zap claim contract
-   * @param contractAddress Address of zap claim contract
-   * @param allowed If true contract is a valid zap claim contract, if false, contract is not
-   */
-  function setIsZapClaimContract(address contractAddress, bool allowed)
-    public
-    onlyOwner
-  {
-    isZapClaimContract[contractAddress] = allowed;
-  }
-
-  /**
    * @notice Determine whether or not a contract address is a valid voting escrow contract
    * @param contractAddress The contract address to test
    * @return Returns true if the contract address is valid voting escrow contract and false if not
@@ -86,11 +74,11 @@ contract AllowlistImplementationVeYFI {
   }
 
   /**
-   * @notice Determine whether or not a token address is a valid reward token
+   * @notice Determine whether or not a token address is our underlying token
    * @param tokenAddress The token address to test
-   * @return Returns true if the token address is valid reward token and false if not
+   * @return Returns true if the token address is the underlying and false if not
    */
-  function isRewardToken(address tokenAddress)
+  function isUnderlying(address tokenAddress)
     public
     view
     returns (bool)
@@ -122,22 +110,6 @@ contract AllowlistImplementationVeYFI {
     returns (bool)
   {
     return veYfiRegistry().isGauge(gaugeAddress);
-  }
-
-  /**
-   * @notice Determine whether or not a vault address is a valid vault
-   * @param vaultAddress The vault address to test
-   * @return Returns true if the vault address is valid and false if not
-   */
-  function isVault(address vaultAddress) public view returns (bool) {
-    address[] memory vaultAddresses = veYfiRegistry().getVaults();
-    for (uint256 vaultIdx=0; vaultIdx < vaultAddresses.length; vaultIdx++) {
-      address currentVaultAddress = vaultAddresses[vaultIdx];
-      if (currentVaultAddress == vaultAddress) {
-        return true;
-      }
-    }
-    return false;
   }
 
   /*******************************************************
