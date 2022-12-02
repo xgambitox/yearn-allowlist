@@ -231,5 +231,15 @@
     "methodName": "claim",
     "paramTypes": ["address", "bool"],
     "requirements": [["target", "isRewardPool"]]
+  },
+  {
+    "id": "VEYFI_SNAPSHOT_DELEGATION",
+    "implementationId": "IMPLEMENTATION_VEYFI",
+    "methodName": "setDelegate",
+    "paramTypes": ["bytes32", "address"],
+    "requirements": [
+      ["target", "isDelegateRegistry"],
+      ["param", "isVeyfiId", "0"]
+    ]
   }
 ]
